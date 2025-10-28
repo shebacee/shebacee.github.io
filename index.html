@@ -8,33 +8,26 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=Cormorant+Garamond:wght@300;400;500&display=swap');
 
-
-
         .silhouette,
-            .hero-bg,
-            .grain {
-                pointer-events: none;
-            }
-
-
-
-
+        .hero-bg,
+        .grain {
+            pointer-events: none;
+        }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         .profile-pic {
             position: absolute;
-            right: 100px;   /* a bit closer to the edge */
-            top: 160px;     /* aligns visually with “fathimath” */
-            width: 280px;   /* larger photo */
+            right: 100px;
+            top: 160px;
+            width: 280px;
             height: 280px;
             border-radius: 50%;
             object-fit: cover;
-            /* border: 1px solid rgba(255, 255, 255, 0.25);
-            box-shadow: 0 0 60px rgba(255, 255, 255, 0.05); */
             border: 0.5px solid rgba(255, 255, 255, 0.3);
             box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.1), 0 0 40px rgba(255, 255, 255, 0.05);
             animation: fadeIn 2s ease-out;
@@ -47,7 +40,6 @@
             box-shadow: 0 0 80px rgba(255, 255, 255, 0.1);
         }
 
-       
         body {
             font-family: 'Inter', sans-serif;
             background: #000000;
@@ -123,7 +115,7 @@
             overflow: hidden;
             display: flex;
             align-items: center;
-            gap: 40px; /* space between name and image */
+            gap: 40px;
             justify-content: flex-start;
         }
 
@@ -382,8 +374,6 @@
             transform: translateX(5px);
         }
 
-
-
         .project-description {
             font-size: 17px;
             font-weight: 300;
@@ -410,7 +400,7 @@
             text-decoration: none;
             display: inline-block;
             transition: all 0.4s ease;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             position: relative;
         }
 
@@ -433,6 +423,49 @@
             color: rgba(255, 255, 255, 1);
         }
 
+        .social-links {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+            align-items: center;
+        }
+
+        .social-link {
+            font-size: 14px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        .social-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.5);
+            transition: width 0.3s ease;
+        }
+
+        .social-link:hover {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .social-link:hover::after {
+            width: 100%;
+        }
+
+        .social-divider {
+            width: 1px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
         .contact-message {
             font-size: 14px;
             font-weight: 300;
@@ -453,6 +486,40 @@
             z-index: 10;
         }
 
+        /* .side-social {
+            position: fixed;
+            left: 60px;
+            bottom: 60px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            z-index: 10;
+            animation: fadeIn 3.5s ease-out;
+        } */
+
+        /* .side-social a {
+            font-size: 12px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: rgba(255, 255, 255, 0.3);
+            text-decoration: none;
+            writing-mode: vertical-rl;
+            transition: all 0.3s ease;
+        }
+
+        .side-social a:hover {
+            color: rgba(255, 255, 255, 0.7);
+            transform: translateY(-5px);
+        }
+
+        .side-social::after {
+            content: '';
+            width: 1px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.2);
+            margin: 10px auto 0;
+        } */
+
         @media (max-width: 768px) {
             .container {
                 padding: 0 30px;
@@ -460,6 +527,20 @@
 
             .name {
                 font-size: 72px;
+            }
+
+            .profile-pic {
+                position: relative;
+                right: auto;
+                top: auto;
+                width: 200px;
+                height: 200px;
+                margin: 0 auto 40px;
+            }
+
+            .name-container {
+                flex-direction: column;
+                text-align: center;
             }
 
             .grid,
@@ -485,6 +566,10 @@
             .scroll-indicator {
                 display: none;
             }
+/* 
+            .side-social {
+                display: none;
+            } */
 
             .section-header::before {
                 display: none;
@@ -543,13 +628,15 @@
     <div class="silhouette"></div>
     <div class="scroll-indicator">scroll</div>
 
+   
+
     <div class="container">
         <div class="hero">
             <div class="name-container">
                 <h1 class="name">fathimath<br>sheba c</h1>
             </div>
             <img src="me.jpeg" alt="Fathimath Sheba" class="profile-pic">
-            
+
             <p class="title">frontend developer</p>
             <p class="subtitle">
                 specializing in elegant, well-architected solutions that balance technical excellence with user-centered
@@ -653,12 +740,19 @@
             <a href="mailto:shebacee.dev@gmail.com" class="contact-email">
                 shebacee.dev@gmail.com
             </a>
+
+            <div class="social-links">
+                <a href="http://www.linkedin.com/in/fathimath-sheba-c" target="_blank"
+                    class="social-link">linkedin</a>
+                <div class="social-divider"></div>
+                <a href="https://github.com/shebacee" target="_blank" class="social-link">github</a>
+            </div>
+
             <p class="contact-message">trying to be better everyday</p>
         </section>
     </div>
 
     <script>
-        // Custom cursor
         const cursor = document.querySelector('.cursor');
         const cursorDot = document.querySelector('.cursor-dot');
 
@@ -669,7 +763,6 @@
             cursorDot.style.top = e.clientY + 'px';
         });
 
-        // Cursor hover effects
         const hoverElements = document.querySelectorAll('a, .content-block, .grid-item, .education-item');
         hoverElements.forEach(el => {
             el.addEventListener('mouseenter', () => {
@@ -682,7 +775,6 @@
             });
         });
 
-        // Reveal on scroll
         const revealElements = document.querySelectorAll('.reveal');
 
         const revealObserver = new IntersectionObserver((entries) => {
@@ -700,7 +792,6 @@
             revealObserver.observe(el);
         });
 
-        // Smooth parallax
         let scrollY = 0;
 
         window.addEventListener('scroll', () => {
@@ -710,7 +801,6 @@
             silhouette.style.transform = `translateY(${scrollY * 0.3}px)`;
         });
 
-        // Ambient cursor trail
         let trails = [];
         document.addEventListener('mousemove', (e) => {
             if (Math.random() > 0.9) {
@@ -747,17 +837,10 @@
         });
 
         const profilePic = document.querySelector('.profile-pic');
-            window.addEventListener('scroll', () => {
-                const offset = window.scrollY * 0.15;
-                profilePic.style.transform = `translateY(${offset}px) scale(1)`;
-            });
-
-
-
-
-
-
-
+        window.addEventListener('scroll', () => {
+            const offset = window.scrollY * 0.15;
+            profilePic.style.transform = `translateY(${offset}px) scale(1)`;
+        });
     </script>
 </body>
 
